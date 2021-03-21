@@ -22,8 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
-
+#data-files
+/analysis
 
 
 
@@ -143,3 +143,4 @@ dist
 .vscode-test
 
 package-lock.json
+

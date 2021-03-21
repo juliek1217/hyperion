@@ -64,37 +64,41 @@ export default function Navbar() {
         <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
 
-        <Typography component="h1" variant="h6" className={classes.title}>
-                            <img className={classes.logo} src="/logo_nav.svg" />
-                            
-                        </Typography>
+        <Typography component="h1" variant="h6" className={classes.title}><Link variant="button" color="textPrimary" exact to="/" className={classes.link}>
+          <img className={classes.logo} src="/logo_nav.svg" /></Link>
+        </Typography>
+          
           <nav>
-
-          <Link variant="button" color="textPrimary" exact to="/" className={classes.link}>
-              <Button href="#text-buttons" color="black">Home</Button>
-          </Link>
-
-          <Link  to="/dashboard/" className={classes.link}>
+          {/* <Link  to="/dashboard/" className={classes.link}>
             <Button href="#text-buttons" color="black">
               Dashboard
               </Button>
-            </Link>
+            </Link> */}
 
             <Link  to="/products/" className={classes.link}>
             <Button href="#text-buttons" color="black">
               Products
               </Button>
             </Link>
+
+            <Link to="/insights/" className={classes.link}>
+            <Button href="#text-buttons" color="black">
+              Insights
+              </Button>
+            </Link>
+            
             <Link to="/support/" className={classes.link}>
             <Button href="#text-buttons" color="black">
               Support
               </Button>
             </Link>
-            <Link to="/about/" className={classes.link}>
+
+            <Link to="/request/" className={classes.link}>
             <Button href="#text-buttons" color="black">
-              About us
+              Request a demo
               </Button>
             </Link>
+            
           </nav>
           <Link to="/login/" className={classes.link}>
           <Button href="#" variant="outlined" color="black" className={classes.link}>

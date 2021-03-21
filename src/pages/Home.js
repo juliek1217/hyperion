@@ -8,6 +8,7 @@ import React from 'react';
 import laptop1 from '../assets/img/laptop-1.jfif';
 import laptop2 from '../assets/img/laptop-2.jpg';
 import laptop3 from '../assets/img/laptop-3.jpg';
+import LandingVideo from '../assets/landing.mp4';
 import AnalyticsSection from '../components/home/AnalyticsSection';
 import DemoSection from '../components/home/DemoSection';
 // homepage components
@@ -15,12 +16,13 @@ import FeaturesSection from '../components/home/FeaturesSection';
 
 const useStyles = makeStyles(theme => ({
   intro: {
-    backgroundImage: 'linear-gradient(135deg, #212121 40%, #263238 60%)',
+    //backgroundImage: 'linear-gradient(135deg, #212121 40%, #323232 60%)',
     padding: theme.spacing(8, 0),
     color: 'white'
   },
   introHeadline: {
     fontWeight: 1000,
+    marginTop: theme.spacing(10),
     fontSize: '60px',
     [theme.breakpoints.up('md')]: {
       fontSize: '50px'
@@ -91,6 +93,14 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     marginTop: theme.spacing(2)
   },
+  landing: {
+    width: '100vw',
+    height: '70vh',
+    overflow: 'hidden',
+    padding: '0',
+    position: 'absolute',
+    zIndex: '-1'
+  }
 }))
 
 const steps = [
@@ -99,27 +109,36 @@ const steps = [
   {text: 'Your podcast is live!', icon: <RssFeedIcon />, image: laptop3}
 ]
 
+
 export default function Homepage() {
   const classes = useStyles();
+  
 
+  
   return ( 
-    <>
       <main>
+
+        <div className={classes.landing}>
+        <video className='videoTag' autoPlay loop muted>
+      <source src={LandingVideo} type='video/mp4' />
+  </video>
+  </div>
+  
         <div className={classes.intro}>
           <Container>
+          
             <Grid 
               container  
               alignItems='center' 
               className={classes.container}
             >
+              
               <Grid item xs={11} sm={8} md={7} lg={6}>
                 <Typography className={classes.introHeadline} paragraph>
-                  {'Investing for Everyone'} 
+                Information, connectivity and opportunity.
                 </Typography>
                 <Typography className={classes.introSubtitle} paragraph>
-                  {`Commission-free investing, plus the tools you need to put 
-                  your money in motion. Sign up and get your first stock for free. 
-                  Certain limitations apply.`}
+                Hyperion Professional Services connect decision makers to a dynamic network of information, people and ideas. At the core of this network is our ability to deliver data, news and analytics through innovative technology, quickly and accurately to individuals and across enterprises.
                 </Typography>
                 <Button 
                   size='large' 
@@ -204,6 +223,5 @@ export default function Homepage() {
           </Grid>
         </div>
       </main>
-    </>
   )
 }
