@@ -14,7 +14,7 @@ const features = [
 
 const useStyles = makeStyles(theme => ({
   container: {
-    margin: theme.spacing(10, 0),
+    //margin: theme.spacing(10, 0),
     padding: theme.spacing(10, 10),
     background: "rgb(240, 235, 230)"
   },

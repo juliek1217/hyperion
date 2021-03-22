@@ -69,12 +69,6 @@ export default function Navbar() {
         </Typography>
           
           <nav>
-          {/* <Link  to="/dashboard/" className={classes.link}>
-            <Button href="#text-buttons" color="black">
-              Dashboard
-              </Button>
-            </Link> */}
-
             <Link to="/products/" className={classes.link}>
             <Button href="#text-buttons" color="black">
               Products
@@ -94,7 +88,7 @@ export default function Navbar() {
             </Link>
 
             <Link to="/request/" className={classes.link}>
-            <Button href="#text-buttons" color="black">
+              <Button href="#text-buttons" color="black">
               Request a demo
               </Button>
             </Link>

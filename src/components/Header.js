@@ -1,16 +1,19 @@
 import {
   AppBar,
   Button,
-  Drawer, IconButton,
-  Link, makeStyles,
+  Drawer,
+  IconButton,
+  makeStyles,
   MenuItem, Toolbar,
   Typography
 } from "@material-ui/core";
+import { blue } from '@material-ui/core/colors';
+import { withStyles } from '@material-ui/core/styles';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import MenuIcon from "@material-ui/icons/Menu";
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link, Link as RouterLink } from "react-router-dom";
 
   const headersData = [
     {
@@ -62,11 +65,12 @@ import { Link as RouterLink } from "react-router-dom";
     header: {
       background: 'transparent', 
       boxShadow: 'none',
-      paddingRight: "79px",
-      paddingLeft: "118px",
-      "@media (max-width: 900px)": {
-        paddingLeft: 0,
-      },
+      //paddingRight: "79px",
+      //paddingLeft: "118px",
+      //"@media (max-width: 1000px)": {
+        //paddingRight: 0,
+        //paddingLeft: 0,
+      //},
     },
     appBarScrolled: {
         backgroundColor: '#212121',
@@ -81,6 +85,11 @@ import { Link as RouterLink } from "react-router-dom";
       fontWeight: 600,
       color: "#FFFEFE",
       textAlign: "left",
+    },
+    logoImage: {
+      height: "30px",
+        marginRight: "10px",
+        verticalAlign: "middle"
     },
     menuButton: {
       fontFamily: "Open Sans, sans-serif",
@@ -99,10 +108,14 @@ import { Link as RouterLink } from "react-router-dom";
       color: "#FFFEFE",
       textDecoration: 'none',
     },
+    link: {
+      margin: theme.spacing(1, 1.5),
+      textDecoration: 'none',
+    },
   }));
   
   export default function Header(props) {
-    const { header, logo, menuButton, toolbar, drawerContainer, appBarScrolled, logoLink  } = useStyles();
+    const { header, logo, menuButton, toolbar, drawerContainer, appBarScrolled, logoLink, link, logoImage  } = useStyles();
   
     const [state, setState] = useState({
       mobileView: false,
@@ -113,7 +126,7 @@ import { Link as RouterLink } from "react-router-dom";
   
     useEffect(() => {
       const setResponsiveness = () => {
-        return window.innerWidth < 900
+        return window.innerWidth < 1100
           ? setState((prevState) => ({ ...prevState, mobileView: true }))
           : setState((prevState) => ({ ...prevState, mobileView: false }));
       };
@@ -127,7 +140,7 @@ import { Link as RouterLink } from "react-router-dom";
       return (
         <Toolbar className={toolbar}>
           {femmecubatorLogo}
-          <div>{getMenuButtons()}</div>
+          <div>{getMenuButtons()}{specialButton}</div>
         </Toolbar>
       );
     };
@@ -144,6 +157,7 @@ import { Link as RouterLink } from "react-router-dom";
           
       return (
         <Toolbar>
+          
           <IconButton
             {...{
               edge: "start",
@@ -155,7 +169,7 @@ import { Link as RouterLink } from "react-router-dom";
           >
             <MenuIcon />
           </IconButton>
-  
+          {femmecubatorLogoMobile}
           <Drawer
             {...{
               anchor: "left",
@@ -163,10 +177,8 @@ import { Link as RouterLink } from "react-router-dom";
               onClose: handleDrawerClose,
             }}
           >
-            <div className={drawerContainer}>{getDrawerChoices()}</div>
-          </Drawer>
-  
-          <div>{femmecubatorLogo}</div>
+            <div className={drawerContainer}>{getDrawerChoices()} </div>
+          </Drawer>       
         </Toolbar>
       );
     };
@@ -190,16 +202,18 @@ import { Link as RouterLink } from "react-router-dom";
     };
   
     const femmecubatorLogo = (
-      // <Typography variant="h6" component="h1" className={logo}>
-      //   <Link  exact to="/" className={logoLink}>
-      //   Hyperion Professional Services
-      //   </Link>
-      //   </Typography>
-        <Typography component="h1" variant="h6" className={logo}><Link exact to="/" className={logoLink}>
+        // eslint-disable-next-line jsx-a11y/alt-text
+        <Typography component="h1" variant="h6" className={logo}><Link exact to="/" className={logoLink}> <img className={logoImage} src="/logo.svg" />
         Hyperion Professional Services</Link>
         </Typography>
-      
     );
+
+    const femmecubatorLogoMobile = (
+      // eslint-disable-next-line jsx-a11y/alt-text
+      <Typography component="h1" variant="h6" className={logo}><Link exact to="/" className={logoLink}> <img className={logoImage} src="/logo.svg" />
+      Hyperion</Link>
+      </Typography>
+  );
   
     const getMenuButtons = () => {
       return headersData.map(({ label, href }) => {
@@ -218,6 +232,25 @@ import { Link as RouterLink } from "react-router-dom";
         );
       });
     };
+
+    const ColorButton = withStyles((theme) => ({
+      root: {
+        //color: theme.palette.getContrastText(lightBlue[500]),
+        color: '#fff',
+        backgroundColor: blue[800],
+        '&:hover': {
+          backgroundColor: blue[900],
+        },
+      },
+    }))(Button);
+    
+    const specialButton = (
+    <Link to="/request/" className={link}>
+      <ColorButton variant="contained" color="primary">
+        Request a demo
+      </ColorButton>
+      </Link>
+  );
   
     return (
       <header>

@@ -11,13 +11,12 @@ import laptop3 from '../assets/img/laptop-3.jpg';
 import LandingVideo from '../assets/landing.mp4';
 import AnalyticsSection from '../components/home/AnalyticsSection';
 import DemoSection from '../components/home/DemoSection';
-// homepage components
 import FeaturesSection from '../components/home/FeaturesSection';
 
 const useStyles = makeStyles(theme => ({
   landing: {
-    width: '100vw',
-    height: '600px',
+    width: '100%',
+    height: '620px',
     overflow: 'hidden',
     padding: '0',
     position: 'absolute',
@@ -36,7 +35,7 @@ const useStyles = makeStyles(theme => ({
   introHeadline: {
     fontWeight: 1000,
     marginTop: theme.spacing(10),
-    fontSize: '60px',
+    fontSize: '20px',
     [theme.breakpoints.up('md')]: {
       fontSize: '50px'
     },
@@ -122,18 +121,13 @@ export default function Homepage() {
       <main>
 
         <div className={classes.landing}>
-        <video className='videoTag' autoPlay loop muted>
-      <source src={LandingVideo} type='video/mp4' />
-  </video>
-  </div>
+          <video className={classes.videoTag} autoPlay loop muted>
+            <source src={LandingVideo} type='video/mp4' />
+          </video>
+        </div>
   
         <div className={classes.intro}>
           <Container>
-            <Grid 
-              container  
-              alignItems='center' 
-              className={classes.container}
-            >
               <Grid item xs={11} sm={8} md={7} lg={6}>
                 <Typography className={classes.introHeadline} paragraph>
                 Information, connectivity and opportunity.
@@ -149,7 +143,6 @@ export default function Homepage() {
                   Learn More
                 </Button>
               </Grid>
-            </Grid>
           </Container>
         </div>
 

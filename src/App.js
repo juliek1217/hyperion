@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-// import Navbar from './components/Navbar';
-import Navbar from './components/Header';
+import Footer from './components/Footer';
+// import Header from './components/Navbar';
+import Header from './components/Header';
 import About from './pages/About';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
@@ -18,7 +19,7 @@ class App extends Component {
     return (
       <BrowserRouter>
       <div className="App">
-        <Navbar/>
+        <Header/>
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/login" component={Login}/>
@@ -31,6 +32,7 @@ class App extends Component {
           <Route path="/about" component={About}/>
           
         </Switch>
+        <Footer/>
       </div>
       </BrowserRouter>
     );
