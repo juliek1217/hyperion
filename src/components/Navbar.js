@@ -75,7 +75,7 @@ export default function Navbar() {
               </Button>
             </Link> */}
 
-            <Link  to="/products/" className={classes.link}>
+            <Link to="/products/" className={classes.link}>
             <Button href="#text-buttons" color="black">
               Products
               </Button>

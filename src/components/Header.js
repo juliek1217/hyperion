@@ -1,10 +1,10 @@
 import {
-    AppBar,
-    Button,
-    Drawer, IconButton,
-    Link, makeStyles,
-    MenuItem, Toolbar,
-    Typography
+  AppBar,
+  Button,
+  Drawer, IconButton,
+  Link, makeStyles,
+  MenuItem, Toolbar,
+  Typography
 } from "@material-ui/core";
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import MenuIcon from "@material-ui/icons/Menu";
@@ -95,10 +95,14 @@ import { Link as RouterLink } from "react-router-dom";
     drawerContainer: {
       padding: "20px 30px",
     },
+    logoLink: {
+      color: "#FFFEFE",
+      textDecoration: 'none',
+    },
   }));
   
   export default function Header(props) {
-    const { header, logo, menuButton, toolbar, drawerContainer, appBarScrolled,  } = useStyles();
+    const { header, logo, menuButton, toolbar, drawerContainer, appBarScrolled, logoLink  } = useStyles();
   
     const [state, setState] = useState({
       mobileView: false,
@@ -186,9 +190,15 @@ import { Link as RouterLink } from "react-router-dom";
     };
   
     const femmecubatorLogo = (
-      <Typography variant="h6" component="h1" className={logo}>
-        Hyperion Professional Services
-      </Typography>
+      // <Typography variant="h6" component="h1" className={logo}>
+      //   <Link  exact to="/" className={logoLink}>
+      //   Hyperion Professional Services
+      //   </Link>
+      //   </Typography>
+        <Typography component="h1" variant="h6" className={logo}><Link exact to="/" className={logoLink}>
+        Hyperion Professional Services</Link>
+        </Typography>
+      
     );
   
     const getMenuButtons = () => {
