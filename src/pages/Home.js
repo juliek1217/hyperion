@@ -12,6 +12,7 @@ import LandingVideo from '../assets/landing.mp4';
 import AnalyticsSection from '../components/home/AnalyticsSection';
 import DemoSection from '../components/home/DemoSection';
 import FeaturesSection from '../components/home/FeaturesSection';
+import SubscriptionSection from '../components/home/SubscriptionSection';
 
 const useStyles = makeStyles(theme => ({
   landing: {
@@ -146,6 +147,8 @@ export default function Homepage() {
           </Container>
         </div>
 
+        <SubscriptionSection/>
+        
         <div className={classes.intro2}>
         <Container>
           <Grid item xs={11} sm={8} md={7} lg={6}>
@@ -174,11 +177,11 @@ export default function Homepage() {
           </Grid>
         </Container>
         </div>
+
         
-        {/* Features section*/}
+
         <FeaturesSection />
 
-        {/* Analytics section*/}
         <AnalyticsSection />
         
         <div>
