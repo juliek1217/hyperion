@@ -15,8 +15,21 @@ import DemoSection from '../components/home/DemoSection';
 import FeaturesSection from '../components/home/FeaturesSection';
 
 const useStyles = makeStyles(theme => ({
+  landing: {
+    width: '100vw',
+    height: '600px',
+    overflow: 'hidden',
+    padding: '0',
+    position: 'absolute',
+    zIndex: '-1'
+  },
   intro: {
     //backgroundImage: 'linear-gradient(135deg, #212121 40%, #323232 60%)',
+    padding: theme.spacing(8, 0),
+    color: 'white'
+  },
+  intro2: {
+    background: '#212121',
     padding: theme.spacing(8, 0),
     color: 'white'
   },
@@ -93,14 +106,6 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     marginTop: theme.spacing(2)
   },
-  landing: {
-    width: '100vw',
-    height: '70vh',
-    overflow: 'hidden',
-    padding: '0',
-    position: 'absolute',
-    zIndex: '-1'
-  }
 }))
 
 const steps = [
@@ -113,8 +118,6 @@ const steps = [
 export default function Homepage() {
   const classes = useStyles();
   
-
-  
   return ( 
       <main>
 
@@ -126,13 +129,11 @@ export default function Homepage() {
   
         <div className={classes.intro}>
           <Container>
-          
             <Grid 
               container  
               alignItems='center' 
               className={classes.container}
             >
-              
               <Grid item xs={11} sm={8} md={7} lg={6}>
                 <Typography className={classes.introHeadline} paragraph>
                 Information, connectivity and opportunity.
@@ -151,8 +152,9 @@ export default function Homepage() {
             </Grid>
           </Container>
         </div>
-        {/* How to use */}
-        <Container style={{padding: 30}}>
+
+        <div className={classes.intro2}>
+        <Container>
           <Grid item xs={11} sm={8} md={7} lg={6}>
             <Typography variant="h3" align="left" className={classes.title}>
               <b>{`We are all investors.`}</b>
@@ -178,6 +180,8 @@ export default function Homepage() {
             ))}
           </Grid>
         </Container>
+        </div>
+        
         {/* Features section*/}
         <FeaturesSection />
 
