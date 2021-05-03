@@ -22,6 +22,11 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     height: 300
   },
+  cardImage: {
+    position: "relative",
+    height: 300,
+    minWidth: "100%"
+  },
   overlay: {
     position: "absolute",
     background: "rgba(0,0,0, 0.45)",
@@ -104,7 +109,7 @@ export default function PostSection() {
               return (
                 <Grid
                   item
-                  xs={10}
+                  xs={12}
                   sm={6}
                   md={7}
                   style={{ padding: 10 }}
@@ -112,7 +117,11 @@ export default function PostSection() {
                 >
                   <Card className={classes.card} elevation={0}>
                     <CardActionArea>
-                      <CardMedia component="img" src={item.image} />
+                      <CardMedia
+                        component="img"
+                        src={item.image}
+                        className={classes.cardImage}
+                      />
                       <div className={classes.overlay}>
                         <Grid style={{ padding: 25 }}>
                           <div className={classes.superTitle}>
@@ -133,7 +142,7 @@ export default function PostSection() {
               return (
                 <Grid
                   item
-                  xs={10}
+                  xs={12}
                   sm={6}
                   md={5}
                   style={{ padding: 10 }}
@@ -141,7 +150,11 @@ export default function PostSection() {
                 >
                   <Card className={classes.card} elevation={0}>
                     <CardActionArea>
-                      <CardMedia component="img" src={item.image} />
+                      <CardMedia
+                        component="img"
+                        src={item.image}
+                        className={classes.cardImage}
+                      />
                       <div className={classes.overlay}>
                         <Grid style={{ padding: 25 }}>
                           <div className={classes.superTitle}>
@@ -150,7 +163,6 @@ export default function PostSection() {
                           <Typography variant="h6" style={{ padding: 10 }}>
                             {item.title}
                           </Typography>
-                          {/* <div className={classes.desc}>{item.desc}</div> */}
                           <div className={classes.date}>{item.date}</div>
                         </Grid>
                       </div>

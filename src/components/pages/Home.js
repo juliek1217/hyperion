@@ -3,13 +3,13 @@ import { purple } from "@material-ui/core/colors";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import React from "react";
-import LandingImg from "../assets/img/main.jpg";
-import ContactSection from "../components/home/ContactSection";
-import IntroSection from "../components/home/IntroSection";
-import PostSection from "../components/home/PostSection";
-import ProductSection from "../components/home/ProductSection";
-import SolutionSection from "../components/home/SolutionSection";
-import SubscriptionSection from "../components/home/SubscriptionSection";
+import LandingImg from "../../assets/img/main.jpg";
+import ContactSection from "../../components/home/ContactSection";
+import IntroSection from "../../components/home/IntroSection";
+import PostSection from "../../components/home/PostSection";
+import SolutionSection from "../../components/home/SolutionSection";
+import SubscriptionSection from "../../components/home/SubscriptionSection";
+import ProductSection from "../home/ProductSection";
 const useStyles = makeStyles(theme => ({
   landing: {
     width: "100%",
@@ -27,20 +27,17 @@ const useStyles = makeStyles(theme => ({
     position: "relative"
   },
   landingText: {
-    color: "white",
     padding: theme.spacing(6, 0),
-    [theme.breakpoints.down("md")]: {
-      padding: theme.spacing(6, 4)
-    }
+    color: "white"
   },
   landingHeadline: {
     fontWeight: 200,
     marginTop: theme.spacing(20),
-    marginBottom: theme.spacing(2),
     fontSize: "20px",
     [theme.breakpoints.up("md")]: {
       fontSize: "50px"
-    }
+    },
+    marginBottom: theme.spacing(2)
   },
   dividerDarkHorizon: {
     alignSelf: "stretch",
@@ -76,7 +73,8 @@ export default function Homepage() {
       <Container className={classes.landingText}>
         <Grid item xs={11} sm={8} md={7} lg={6}>
           <Typography className={classes.landingHeadline} paragraph>
-            <b>Hyperion Analytics</b> for Analysts and Portfolio Managers
+            <strong>Hyperion Analytics</strong> for Analysts and Portfolio
+            Managers
           </Typography>
           <Typography variant="h6">
             <Box style={{ textAlign: "left" }}>

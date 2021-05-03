@@ -38,27 +38,20 @@ const features = [
 const useStyles = makeStyles(theme => ({
   container: {
     padding: theme.spacing(10, 10),
-    background: "rgb(240, 235, 230)"
+    background: "rgb(240, 235, 230)",
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(10, 2)
+    }
   },
-  demo: {
-    padding: theme.spacing(2)
-  },
-  card: {
-    height: "100%",
-    marginRight: theme.spacing(2)
-  },
-  cardImg: {
-    height: "100%"
-  },
-  progress: {
-    height: 7,
-    borderRadius: 15,
-    margin: theme.spacing(0, 2)
+  cardImage: {
+    position: "relative",
+    height: 300,
+    minWidth: "100%"
   },
   subTitle: {
-    fontSize: 12,
+    fontSize: 18,
     [theme.breakpoints.up("sm")]: {
-      fontSize: 19
+      fontSize: 20
     }
   },
   superTitle: {
@@ -69,18 +62,18 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function FeaturesSection() {
+export default function ProductSection() {
   const classes = useStyles();
   return (
     <div className={classes.container}>
       <Grid container justify="space-between">
-        <Grid item xs={11} sm={8} md={4} style={{ padding: 10 }}>
+        <Grid item xs={12} md={4}>
           <Box style={{ position: "relative" }} mb={10}>
-            <Card style={{ height: 200, width: "85%" }}>
+            <Card style={{ height: 300, width: "85%" }}>
               <CardMedia
                 component="img"
                 src={laptop2}
-                style={{ height: "100%" }}
+                className={classes.cardImage}
               />
             </Card>
             <Card
@@ -89,7 +82,7 @@ export default function FeaturesSection() {
               <CardMedia
                 component="img"
                 src={laptop3}
-                style={{ height: "100%" }}
+                className={classes.cardImage}
               />
             </Card>
           </Box>
@@ -110,8 +103,8 @@ export default function FeaturesSection() {
           </Grid>
 
           <Grid container justify="space-between">
-            {features.map((item, f) => (
-              <Grid item xs={6} sm={5} style={{ padding: "0px 10px" }} key={f}>
+            {features.map((item, i) => (
+              <Grid item xs={12} md={6} style={{ padding: "0px 10px" }} key={i}>
                 <Typography variant="h6">
                   <b>{item.title}</b>
                 </Typography>

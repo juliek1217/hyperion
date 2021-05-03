@@ -64,7 +64,7 @@ export default function ContactSection() {
     <div className={classes.container}>
       <Container>
         <Grid container justify="center">
-          <Grid item xs={10} sm={6} md={3} style={{ padding: 10 }}>
+          <Grid item xs={12} sm={6} md={3} style={{ padding: 10 }}>
             <Typography variant="h4" className={classes.title}>
               <b>We're here for you</b>
             </Typography>
@@ -74,7 +74,7 @@ export default function ContactSection() {
             </Typography>
           </Grid>
 
-          <Grid item xs={10} sm={6} md={3} style={{ padding: 10 }}>
+          <Grid item xs={12} sm={6} md={3} style={{ padding: 10 }}>
             <Card className={classes.root}>
               <CardContent>
                 <Typography
@@ -107,7 +107,7 @@ export default function ContactSection() {
             </Card>
           </Grid>
 
-          <Grid item xs={10} sm={6} md={3} style={{ padding: 10 }}>
+          <Grid item xs={12} sm={6} md={3} style={{ padding: 10 }}>
             <Card className={classes.root}>
               <CardContent>
                 <Typography
@@ -133,7 +133,7 @@ export default function ContactSection() {
             </Card>
           </Grid>
 
-          <Grid item xs={10} sm={6} md={3} style={{ padding: 10 }}>
+          <Grid item xs={12} sm={6} md={3} style={{ padding: 10 }}>
             <Card className={classes.root}>
               <CardContent>
                 <Typography

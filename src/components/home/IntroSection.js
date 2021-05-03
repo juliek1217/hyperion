@@ -32,7 +32,16 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     position: "relative",
-    height: 200
+    height: 200,
+    margin: 10,
+    [theme.breakpoints.down("xs")]: {
+      marginTop: 30
+    }
+  },
+  cardImage: {
+    position: "relative",
+    height: 200,
+    minWidth: "100%"
   },
   overlay: {
     position: "absolute",
@@ -86,9 +95,13 @@ export default function IntroSection() {
         </Grid>
         <Grid container justify="center">
           {items.map((item, i) => (
-            <Grid item xs={10} sm={6} md={4} style={{ padding: 10 }} key={i}>
+            <Grid item xs={12} sm={6} md={4} key={i}>
               <Card className={classes.card} elevation={0}>
-                <CardMedia component="img" src={item.image} />
+                <CardMedia
+                  component="img"
+                  src={item.image}
+                  className={classes.cardImage}
+                />
                 <div className={classes.overlay}>
                   <Grid>
                     <Typography variant="h6" style={{ padding: 10 }}>
